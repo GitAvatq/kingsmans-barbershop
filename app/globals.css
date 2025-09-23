@@ -1,0 +1,46 @@
+@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Inknut+Antiqua:wght@300;400;500;600;700;800;900&family=Jockey+One&family=Josefin+Slab:ital,wght@0,100..700;1,100..700&family=Julius+Sans+One&display=swap");
+@import "tailwindcss";
+:root {
+    --background: #212121;
+    --foreground: #171717;
+    --accent-color: #e9c664;
+    --gold-color: #d29c4e;
+    --dark-bg-color: #212121;
+    --main-color: #fff;
+    --font-base: var(--font-joselin);
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+@theme inline {
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+    --color-main: var(--main-color);
+    --color-accent: var(--accent-color);
+    --color-dark: var(--dark-bg-color);
+    --color-gold: var(--gold-color);
+    --font-base: var(--font-joselin);
+    --font-accent: var(--font-julius);
+    --font-abril: var(--font-abril);
+    --font-footer: var(--font-inknut);
+    --font-jockey: var(--font-jockey);
+    --breakpoint-sm: 480px;
+    --breakpoint-md: 768px;
+    --breakpoint-lg: 1024px;
+    --breakpoint-xl: 1280px;
+}
+
+@media (prefers-color-scheme: black) {
+     :root {
+        --background: #212121;
+        --foreground: #ededed;
+    }
+}
+
+body {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-base);
+}
