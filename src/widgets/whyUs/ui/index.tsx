@@ -4,7 +4,7 @@ import { Card } from './card';
 
 const WhyUs = () => {
     return (
-        <div className=''>
+        <div>
             <div className='max-w-[1240px] mx-auto px-5'>
                 <div className='py-7 text-white'>
                     <h1 className='pt-10 text-6xl font-accent text-center'>Why Us</h1>
