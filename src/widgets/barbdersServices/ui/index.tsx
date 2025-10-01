@@ -11,7 +11,7 @@ import {
 
 const BarbersServices = () => {
   return (
-    <section className="py-7 text-white ">
+    <section className="py-7 text-white">
       <div className="max-w-[1240px] mx-auto px-5">
         <h1 className="pt-10 text-4xl md:text-6xl font-accent text-center">
           Barbershop Services

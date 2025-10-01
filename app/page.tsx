@@ -1,6 +1,7 @@
 import BarbersServices from "@/widgets/barbdersServices/ui";
 import Header from "@/widgets/header/ui";
 import Hero from "@/widgets/hero/ui";
+import Masters from "@/widgets/masters/ui";
 import WhyUs from "@/widgets/whyUs/ui";
 import React from "react";
 
@@ -17,6 +18,7 @@ const page = () => {
       <main>
         <WhyUs />
         <BarbersServices />
+        <Masters />
       </main>
     </div>
   );
