@@ -6,10 +6,8 @@ import {
   Josefin_Slab,
   Julius_Sans_One,
 } from "next/font/google";
-import Header from "@/widgets/header/ui";
 import "./globals.css";
 import ReactThemeProvider from "./providers/theme-provider";
-
 
 const joselin = Josefin_Slab({
   subsets: ["latin"],
@@ -49,10 +47,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${jockey.variable} ${inknut.variable} ${jockey.variable} ${joselin.variable} ${abril.variable} ${julius.variable}`}>
-        <ReactThemeProvider>
-          {children}
-        </ReactThemeProvider>
+      <body
+        className={`${jockey.variable} ${inknut.variable} ${jockey.variable} ${joselin.variable} ${abril.variable} ${julius.variable}`}
+      >
+        <ReactThemeProvider>{children}</ReactThemeProvider>
       </body>
     </html>
   );
