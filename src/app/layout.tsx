@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Abril_Fatface, Inknut_Antiqua, Jockey_One, Josefin_Slab, Julius_Sans_One } from "next/font/google"
 import "./globals.css";
+import ReactThemeProvider from "./providers/theme-provider";
 
 
 const joselin = Josefin_Slab({
@@ -42,7 +43,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${jockey.variable} ${inknut.variable} ${jockey.variable} ${joselin.variable} ${abril.variable} ${julius.variable}`}>
-        {children}
+        <ReactThemeProvider>
+          {children}
+        </ReactThemeProvider>
       </body>
     </html>
   );

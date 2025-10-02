@@ -41,18 +41,8 @@ export const servicesList: ServicesList[] = [
     price: 20,
   },
   {
-    id: 8,
-    name: "Haircut",
-    price: 20,
-  },
-  {
     id: 9,
     name: "Shavings",
-    price: 20,
-  },
-  {
-    id: 10,
-    name: "Haircut",
     price: 20,
   },
   {
@@ -61,28 +51,8 @@ export const servicesList: ServicesList[] = [
     price: 20,
   },
   {
-    id: 12,
-    name: "Minet",
-    price: 20,
-  },
-  {
-    id: 13,
-    name: "Gaircut",
-    price: 20,
-  },
-  {
     id: 14,
     name: "Taper fade",
-    price: 20,
-  },
-  {
-    id: 16,
-    name: "Gigabek",
-    price: 20,
-  },
-  {
-    id: 17,
-    name: "Gigabek",
     price: 20,
   },
 ];

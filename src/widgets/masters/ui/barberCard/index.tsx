@@ -13,6 +13,8 @@ export const BarberCard = ({ barber }: MasterCardProps) => (
             <p>{barber.address}</p>
             <Button className="cursor-pointer hover:bg-white hover:text-gold transition-colors">Sign Up</Button>
         </div>
-        <Badge style={{ color: `${barber.status === "Top Barber" ? "#63c5da" : barber.status === "Premium Barber" ? "violet" : barber.status === "Kingsman Barber" ? "#d29c4e" : "gray"}` }} className={`absolute top-2.5 right-1.5 py-2 px-4`}>{barber.status}</Badge>
+        <Badge style={{ color: `${barber.status === "Top Barber" ? "#63c5da" : barber.status === "Premium Barber" ? "violet" : barber.status === "Kingsman Barber" ? "#d29c4e" : "gray"}` }} className={`absolute top-2.5 right-1.5 py-2 px-4`}>{barber.status}
+
+        </Badge>
     </div>
 )
