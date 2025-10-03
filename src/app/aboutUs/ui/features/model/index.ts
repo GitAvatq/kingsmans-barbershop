@@ -11,19 +11,19 @@ export const featuresData = [
     description: "Convenient branches near the metro. Walk in, sit down, ",
   },
   {
-    id: 1,
+    id: 2,
     icon: starIcon,
     title: "Materials",
     description: "We use premium products and tools that never fail.",
   },
   {
-    id: 1,
+    id: 3,
     icon: alarmIcon,
     title: "No wasted words",
     description: "Men value time. We work sharp and punctual.",
   },
   {
-    id: 1,
+    id: 4,
     icon: mapIcon,
     title: "Always close",
     description: "Convenient branches near the metro. Walk in, sit down,",

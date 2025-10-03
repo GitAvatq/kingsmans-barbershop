@@ -1,4 +1,3 @@
-
 import React from "react";
 import { featuresData } from "../model";
 import { FeaturesCard } from "./card";
@@ -11,7 +10,7 @@ const Features = () => {
           Our features
         </h1>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 py-14">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 py-14">
           {featuresData.map((r) => (
             <FeaturesCard key={r.id} el={r} />
           ))}

@@ -3,10 +3,10 @@ import { motion } from "framer-motion";
 
 const OurStory = () => {
   return (
-    <section className="bg-[url('/whoWeAreBg.svg')] bg-cover h-[90vh] flex justify-center text-white text-center px-4">
-      <div className="flex flex-col gap-5 py-28">
+    <section className="bg-[url('/whoWeAreBg.svg')] bg-cover bg-center h-[95vh] flex justify-center items-center text-white text-center px-4 sm:px-6 md:px-12 lg:px-24">
+      <div className="flex flex-col gap-5 py-20 sm:py-28 md:py-32 lg:py-36 max-w-5xl text-center">
         <motion.h1
-          className="text-4xl md:text-6xl font-accent text-[#D29C4E] text-center"
+          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-accent text-[#D29C4E]"
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
@@ -16,7 +16,7 @@ const OurStory = () => {
         </motion.h1>
 
         <motion.p
-          className="mt-4 text-lg max-w-2xl"
+          className="mt-4 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed md:leading-loose"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
@@ -34,9 +34,7 @@ const OurStory = () => {
           carrying oneself with dignity. Every line we cut, every beard we
           shape, every touch of the blade is done with one goal: to make sure
           that when a man leaves our shop, he feels stronger, sharper, and ready
-          to face the world. Our philosophy is simple: men’s style demands
-          respect, precision, and character. That’s not a slogan – it’s a
-          promise. And we deliver it, every single time.
+          to face the world.
         </motion.p>
       </div>
     </section>
