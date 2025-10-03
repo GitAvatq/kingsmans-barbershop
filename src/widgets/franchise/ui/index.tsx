@@ -27,8 +27,8 @@ export default function WorldMapWithHover() {
             <div className='py-7 text-base'>
                 <h1 className='pt-10 text-6xl font-accent text-center mb-30'>Franchising</h1>
             </div>
-            <div className="relative w-full h-[500px] -left-80 max-lg:-left-55  max-lg:h-[400px] max-md:-left-40 max-sm:h-[300px] max-sm:-left-30">
-                <ComposableMap projectionConfig={{ scale: scaleValue }} >
+            <div className="relative w-full h-[500px] -left-80 max-lg:-left-55  max-lg:h-[400px] max-md:-left-40 max-sm:h-[300px] max-sm:-left-30 overflow-hidden">
+                <ComposableMap projectionConfig={{ scale: scaleValue }}>
                     <Geographies geography={geoUrl} >
                         {({ geographies }) =>
                             geographies.filter((geo) => ["USA", "Malaysia", "Kyrgyzstan", "Russia", "Mongolia", "Moldova", "Estonia", "Germany", "Switzerland", "Turkey", "China", "Italy", "United Kingdom", "Philippines", "Saudi Arabia", "Kazakhstan"].includes(geo.properties.name)).map((geo) => (
@@ -54,8 +54,7 @@ export default function WorldMapWithHover() {
             <div>
                 {hoveredCountry && (
                     <>
-                        <button>fefef</button>
-                        <div className="absolute top-1/2 right-[100px] bg-accent  dark:bg-black p-2 rounded shadow-lg z-10 h-40 w-50 text-center z-20">
+                        <div className="absolute top-1/2 right-[100px] bg-accent  dark:bg-black p-2 rounded shadow-lg z-10 h-40 w-50 text-center">
                             <h3 className="font-bold font-base text-2xl">{hoveredCountry}</h3>
                         </div>
                     </>
