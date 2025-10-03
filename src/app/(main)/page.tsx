@@ -5,6 +5,7 @@ import WhyUs from "@/widgets/whyUs/ui";
 import BarbersServices from "@/widgets/barbdersServices/ui";
 import Franchise from "@/widgets/franchise/ui";
 import FranchiseCTA from "@/widgets/franchiseCTA/ui";
+import Location from "@/widgets/location";
 
 const Home = () => {
     return (
@@ -14,6 +15,7 @@ const Home = () => {
             <Masters />
             <Franchise />
             <FranchiseCTA />
+            <Location />
         </>
     );
 };
