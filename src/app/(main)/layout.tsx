@@ -1,4 +1,3 @@
-// layout.tsx
 import React, { ReactNode } from "react";
 import Header from "@/widgets/header/ui";
 import Hero from "@/widgets/hero/ui";
