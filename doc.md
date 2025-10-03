@@ -7,7 +7,7 @@
     - `git flow [branch] finish [branch_name]`
     	Пример:
     ```
-    git flow feature start header-block
+
     git flow feature finish header-block
     ```
     Через `git branch`:
