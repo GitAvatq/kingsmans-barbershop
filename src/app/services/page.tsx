@@ -8,14 +8,14 @@ import Footer from "@/widgets/footer/ui";
 
 const Services = () => {
   return (
-    <section>
+    <>
       <Header />
       <Title />
       <BarbersServices />
       <Rewievs />
       <BlogSection />
       <Footer />
-    </section>
+    </>
   );
 };
 

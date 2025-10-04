@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { ComposableMap, Geographies, Geography } from "react-simple-maps";
 const geoUrl = "https://unpkg.com/world-atlas@2.0.2/countries-110m.json";
 
-export default function WorldMapWithHover() {
+export default function FranchiseMap() {
     const [hoveredCountry, setHoveredCountry] = useState("");
     const [scaleValue, setScaleValue] = useState(210);
     useEffect(() => {
@@ -23,9 +23,9 @@ export default function WorldMapWithHover() {
     }, []);
 
     return (
-        <section className="relative max-w-[1240px] px-5 mx-auto mt-17 bg-white">
+        <section className="relative max-w-[1240px] px-5 mx-auto mt-17 bg-white overflow-hidden">
             <div className='py-7 text-base'>
-                <h1 className='pt-10 text-6xl font-accent text-center mb-30'>Franchising</h1>
+                <h4 className='pt-10 text-6xl font-accent text-center mb-30'>Franchising</h4>
             </div>
             <div className="relative w-full h-[500px] -left-80 max-lg:-left-55  max-lg:h-[400px] max-md:-left-40 max-sm:h-[300px] max-sm:-left-30 overflow-hidden">
                 <ComposableMap projectionConfig={{ scale: scaleValue }}>
