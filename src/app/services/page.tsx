@@ -7,13 +7,13 @@ import Header from "@/widgets/header/ui";
 
 const Services = () => {
   return (
-    <section>
+    <>
       <Header />
       <Title />
       <BarbersServices />
       <Rewievs />
       <BlogSection />
-    </section>
+    </>
   );
 };
 
