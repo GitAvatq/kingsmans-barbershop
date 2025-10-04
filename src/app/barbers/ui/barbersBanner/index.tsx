@@ -5,7 +5,7 @@ const BannerBarbers = () => {
   return (
     <div className="h-[100vh] relative bg-[url(/barbers-bg.svg)] bg-cover bg-center max-lg:h-[80vh] max-md:h-[60vh] max-sm:h-[40vh]">
       <div className="absolute inset-0 bg-black/60"></div>
-      <div className="relative max-w-[1240pxgriugrg] mx-auto px-5 py-12">
+      <div className="relative max-w-[1240px] mx-auto px-5 py-12">
         <div className="text-[#FFF] pt-36 flex flex-col gap-8 max-lg:pt-18 max-lg:gap-4 max-md:pt-18 max-md:gap-5 max-sm:gap-2 max-sm:pt-10">
           <h1 className="text-[64px] font-bold max-md:text-4xl max-sm:text-2xl">
             BARBERS OF <span className="text-[#E9C664]">KINGSMAN</span>
