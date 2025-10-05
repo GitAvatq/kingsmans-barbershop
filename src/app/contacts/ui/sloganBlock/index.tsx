@@ -13,7 +13,6 @@ const Slogan = () => {
                     <div className='max-w-[1240px] mx-auto px-5'>
                         <div className='min-h-screen flex items-center justify-center text-black'>
                             <motion.div
-
                                 transition={{
                                     duration: 0.8,
                                     ease: "easeOut",

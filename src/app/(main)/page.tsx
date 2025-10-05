@@ -6,6 +6,7 @@ import BarbersServices from "@/widgets/barbdersServices/ui";
 import Franchise from "@/widgets/franchise/ui";
 import FranchiseCTA from "@/widgets/franchiseCTA/ui";
 import Location from "@/widgets/location";
+import Fillial from "@/entities/fillial/ui";
 
 const Home = () => {
     return (
@@ -16,6 +17,8 @@ const Home = () => {
             <Franchise />
             <FranchiseCTA />
             <Location />
+            <Fillial />
+
         </>
     );
 };
