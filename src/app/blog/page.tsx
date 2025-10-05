@@ -7,10 +7,20 @@ import Blog from "./ui/blogCards/ui";
 const page = () => {
   return (
     <>
-      <Header />
-      <BlogBanner />
+      <div className="relative  bg-[url('/servicesBg.svg')] bg-cover bg-center w-full">
+        <div className="bg-black/50 absolute inset-0 z-0"></div>
+        <div className="relative  z-10 pb-5 ">
+          <Header />
+          <BlogBanner />
+        </div>
+      </div>
       <Blog />
-      <Footer />
+      <div className="relative bg-[url(/footer-bg.jpg)] bg-left bg-cover w-full min-h-screen">
+        <div className="bg-black/50 absolute inset-0 z-0"></div>
+        <div className="z-10 pb-5 relative">
+          <Footer />
+        </div>
+      </div>
     </>
   );
 };

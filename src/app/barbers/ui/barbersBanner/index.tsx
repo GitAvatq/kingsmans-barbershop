@@ -6,12 +6,12 @@ import { barbersBannerData } from "./model";
 const BannerBarbers = () => {
   return (
     <motion.div
-      className="h-[100vh] relative bg-[url(/barbers-bg.svg)] bg-cover bg-center max-lg:h-[80vh] max-md:h-[60vh] max-sm:h-[40vh]"
+      className="h-[100vh] relative"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
     >
-      <div className="absolute inset-0 bg-black/60"></div>
+      {/* <div className="absolute inset-0 bg-black/60"></div> */}
       <motion.div
         className="relative max-w-[1240px] mx-auto px-5 py-12"
         initial={{ opacity: 0, y: 50 }}

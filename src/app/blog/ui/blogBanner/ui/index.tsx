@@ -7,17 +7,10 @@ const BlogBanner = () => {
   return (
     <section className="relative h-[70vh] sm:h-[80vh] lg:h-[100vh] text-white flex items-center justify-center overflow-hidden">
       <motion.div
-        className="absolute inset-0 bg-[url('/BlogOverlay.svg')] bg-cover bg-center -z-1"
+        className="absolute inset-0 "
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
-      />
-
-      <motion.div
-        className="absolute inset-0 bg-black/100 -z-1"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 0.6 }}
-        transition={{ duration: 1, delay: 0.3 }}
       />
 
       <div className="max-w-[1240px] mx-auto px-3 sm:px-5 text-center">
