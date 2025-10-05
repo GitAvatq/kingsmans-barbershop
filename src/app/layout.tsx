@@ -48,9 +48,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${jockey.variable} ${inknut.variable} ${jockey.variable} ${joselin.variable} ${abril.variable} ${julius.variable}`}
+        className={`${jockey.variable} ${inknut.variable} ${joselin.variable} ${abril.variable} ${julius.variable}`}
       >
-        <ReactThemeProvider>{children}</ReactThemeProvider>
+        <ReactThemeProvider>
+          {children}
+        </ReactThemeProvider>
       </body>
     </html>
   );

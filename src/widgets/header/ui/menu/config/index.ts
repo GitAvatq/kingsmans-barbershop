@@ -26,10 +26,6 @@ export const items = [
     path: paths.contacts,
   },
   {
-    text: "FILLIALS",
-    path: paths.fillial,
-  },
-  {
     text: "ABOUT US",
     path: paths.aboutUs,
   },

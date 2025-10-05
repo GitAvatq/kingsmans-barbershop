@@ -3,9 +3,9 @@ import Header from "@/widgets/header/ui";
 import Hero from "@/widgets/hero/ui";
 import Footer from "@/widgets/footer/ui";
 
-
 const MainLayout = ({ children }: { children: ReactNode }) => {
     return (
+
         <>
             <div className="relative bg-[url(/hero-bg.jpg)] bg-center bg-cover w-full min-h-screen">
                 <div className="bg-black/50 absolute inset-0 z-0"></div>
