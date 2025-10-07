@@ -6,20 +6,19 @@ import { barbersBannerData } from "./model";
 const BannerBarbers = () => {
   return (
     <motion.div
-      className="h-[100vh] relative"
+      className="min-h-screen relative"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
     >
-      {/* <div className="absolute inset-0 bg-black/60"></div> */}
       <motion.div
-        className="relative max-w-[1240px] mx-auto px-5 py-12"
+        className="relative max-w-[1240px] mx-auto px-5 py-10"
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, ease: "easeOut" }}
       >
         <motion.div
-          className="text-[#FFF] pt-36 flex flex-col gap-8 max-lg:pt-18 max-lg:gap-4 max-md:pt-18 max-md:gap-5 max-sm:gap-2 max-sm:pt-10"
+          className="text-[#FFF] pt-10 flex flex-col gap-8 max-lg:pt-18 max-lg:gap-4 max-md:pt-5 max-md:gap-5 max-sm:gap-2 max-sm:pt-0"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: "easeOut" }}
@@ -27,7 +26,7 @@ const BannerBarbers = () => {
           <h1 className="text-[64px] font-bold max-md:text-4xl max-sm:text-2xl">
             BARBERS OF <span className="text-[#E9C664]">KINGSMAN</span>
           </h1>
-          <p className="text-6xl font-light leading-tight max-md:text-4xl max-sm:text-2xl">
+          <p className="text-6xl font-light leading-tight max-md:text-2xl max-sm:text-base">
             Professionals <br />
             with impeccable taste
           </p>

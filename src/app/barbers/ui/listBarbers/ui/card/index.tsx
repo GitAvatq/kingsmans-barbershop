@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import { DataBarbersCardProps } from "../../types/listBarbers.interface";
 import { StatusBadge } from "@/shared/statusBadge";
+import Link from "next/link";
 
 export const BarbersCard = ({
   barber: {
@@ -42,9 +43,11 @@ export const BarbersCard = ({
         {service && (
           <p className="text-[17px] text-gray-400">💈 {service}+ haircuts</p>
         )}
-        <button className="mt-3 text-[#E9C664] text-[17px] font-semibold hover:underline">
-          {button}
-        </button>
+        <Link href={"/barbers/id"}>
+          <button className="mt-3 text-[#E9C664] text-[17px] font-semibold hover:underline">
+            {button}
+          </button>
+        </Link>
       </div>
     </div>
   );

@@ -7,7 +7,7 @@ import Image from "next/image";
 
 const ListBanners = () => {
   return (
-    <div className="py-16 relative max-sm:py-5">
+    <section className="py-16 relative max-sm:py-5">
       <div className="max-w-[1240px] mx-auto px-5">
         <h1 className="text-[#fff] text-4xl font-light text-center mb-16 max-sm:mb-8 max-sm:text-2xl">
           Your Style Experts
@@ -32,7 +32,7 @@ const ListBanners = () => {
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

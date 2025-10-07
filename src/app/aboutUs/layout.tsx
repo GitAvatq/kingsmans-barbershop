@@ -1,20 +1,26 @@
 "use client"
-import React, { ReactNode, useEffect } from "react";
+import { motion } from "framer-motion";
+import React, { ReactNode, useEffect } from 'react';
+import Banner from "./ui/banner/ui";
 import Header from "@/widgets/header/ui";
-import Hero from "@/widgets/hero/ui";
 import Footer from "@/widgets/footer/ui";
 
-const MainLayout = ({ children }: { children: ReactNode }) => {
+const AboutLayout = ({ children }: { children: ReactNode }) => {
     useEffect(() => {
         window.scrollTo(0, 0)
     }, [])
     return (
         <>
-            <div className="relative bg-[url(/hero-bg.jpg)] bg-center bg-cover w-full min-h-screen">
-                <div className="bg-black/50 absolute inset-0 z-0"></div>
+            <div className="relative bg-[url('/aboutHeroBg.svg')] bg-cover bg-center w-full">
+                <motion.div
+                    className="bg-black/50 absolute inset-0 z-0"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 1 }}
+                />
                 <div className="relative  z-10 pb-5 ">
                     <Header />
-                    <Hero />
+                    <Banner />
                 </div>
             </div>
             <main>{children}</main>
@@ -28,4 +34,4 @@ const MainLayout = ({ children }: { children: ReactNode }) => {
     );
 };
 
-export default MainLayout;
+export default AboutLayout;
