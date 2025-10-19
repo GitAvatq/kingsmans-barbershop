@@ -11,7 +11,6 @@ const BannerBarbers = () => {
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
     >
-      {/* <div className="absolute inset-0 bg-black/60"></div> */}
       <motion.div
         className="relative max-w-[1240px] mx-auto px-5 py-12"
         initial={{ opacity: 0, y: 50 }}
@@ -19,7 +18,7 @@ const BannerBarbers = () => {
         transition={{ duration: 1, ease: "easeOut" }}
       >
         <motion.div
-          className="text-[#FFF] pt-36 flex flex-col gap-8 max-lg:pt-18 max-lg:gap-4 max-md:pt-18 max-md:gap-5 max-sm:gap-2 max-sm:pt-10"
+          className="text-[#FFF] pt-20 flex flex-col gap-8 max-lg:pt-18 max-lg:gap-4 max-md:pt-18 max-md:gap-5 max-sm:gap-2 max-sm:pt-10"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: "easeOut" }}

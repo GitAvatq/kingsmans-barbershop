@@ -28,9 +28,9 @@ export const dataBarbersList: DataBarbers[] = [
   },
   {
     id: 3,
-    name: "Alymbek TR",
+    name: "Alymbek",
     experience: "5",
-    status: "tr barber",
+    status: "top barber",
     earned: 2020,
     rating: 4.8,
     service: 777,
@@ -40,9 +40,9 @@ export const dataBarbersList: DataBarbers[] = [
   },
   {
     id: 4,
-    name: "Aslan Manty",
+    name: "Aslan",
     experience: "4",
-    status: "manty barber",
+    status: "top barber",
     earned: 2022,
     rating: 3,
     service: 480,
