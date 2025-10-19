@@ -1,3 +1,5 @@
+"use client"
+import { motion } from "framer-motion";
 import Header from '@/widgets/header/ui';
 import React from 'react';
 import Hero from './ui/hero';
@@ -13,7 +15,12 @@ const FranchisePage = () => {
     return (
         <>
             <div className="relative bg-[url(/franchise-bg.jpg)] bg-center bg-cover w-full min-h-screen">
-                <div className="bg-black/50 absolute inset-0 z-0"></div>
+                <motion.div
+                    className="bg-black/50 absolute inset-0 z-0"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 1 }}
+                />
                 <div className="relative  z-10 pb-5 ">
                     <Header />
                     <Hero />

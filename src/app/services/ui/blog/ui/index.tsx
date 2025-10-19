@@ -1,6 +1,7 @@
 import React from "react";
-import { BlogCard } from "./card";
-import { blogsData } from "../model";
+import { Blog } from "@/app/services/types/blog.interface";
+import { blogsData } from "@/app/services/model";
+import { BlogCard } from "@/shared/blogCard/ui";
 
 const BlogSection = () => {
   return (
@@ -14,7 +15,7 @@ const BlogSection = () => {
         </div>
 
         <div className="flex flex-wrap justify-center gap-6 py-14">
-          {blogsData.map((b) => (
+          {blogsData.map((b: Blog) => (
             <div key={b.id} className="flex-1 min-w-[280px] max-w-[380px]">
               <BlogCard el={b} />
             </div>

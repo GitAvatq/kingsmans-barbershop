@@ -1,6 +1,6 @@
 import React from "react";
 import { blog } from "../model";
-import { BlogCard } from "./card";
+import { BlogCard } from "@/shared/blogCard/ui";
 
 const Blog = () => {
   return (

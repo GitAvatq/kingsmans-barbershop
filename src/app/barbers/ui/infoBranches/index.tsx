@@ -4,7 +4,7 @@ import logo from "@public/logo.svg";
 
 const InfoBranches = () => {
   return (
-    <div className="bg-[url(/branches-map.svg)] h-[60vh] max-lg:h-[50vh] max-md:h-[40vh]">
+    <section className="bg-[url(/branches-map.svg)] h-[60vh] max-lg:h-[50vh] max-md:h-[40vh]">
       <div className="max-w-[1240px] mx-auto px-5">
         <div className="flex items-center h-[60vh] gap-32 max-lg:h-[50vh] max-lg:gap-28 max-md:h-[40vh] max-sm:gap-8 ">
           <Image
@@ -29,7 +29,7 @@ const InfoBranches = () => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

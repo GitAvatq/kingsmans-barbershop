@@ -6,13 +6,13 @@ import { barbersBannerData } from "./model";
 const BannerBarbers = () => {
   return (
     <motion.div
-      className="h-[100vh] relative"
+      className="min-h-screen relative"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
     >
       <motion.div
-        className="relative max-w-[1240px] mx-auto px-5 py-12"
+        className="relative max-w-[1240px] mx-auto px-5 py-10"
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, ease: "easeOut" }}
@@ -26,7 +26,7 @@ const BannerBarbers = () => {
           <h1 className="text-[64px] font-bold max-md:text-4xl max-sm:text-2xl">
             BARBERS OF <span className="text-[#E9C664]">KINGSMAN</span>
           </h1>
-          <p className="text-6xl font-light leading-tight max-md:text-4xl max-sm:text-2xl">
+          <p className="text-6xl font-light leading-tight max-md:text-2xl max-sm:text-base">
             Professionals <br />
             with impeccable taste
           </p>
