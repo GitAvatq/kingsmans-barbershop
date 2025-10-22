@@ -2,7 +2,7 @@ import { StaticImageData } from "next/image";
 
 export interface Blog {
   id: number;
-  title: string;
+  name: string;
   text: string;
   image: StaticImageData;
   button: string;

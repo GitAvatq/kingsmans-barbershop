@@ -1,17 +1,20 @@
 import React from "react";
-import { blog } from "../model";
 import { BlogCard } from "@/shared/blogCard/ui";
+import { useGetProductsQuery } from "@/features/blog/blogApi";
 
 const Blog = () => {
+  const { data, isError, isLoading } = useGetProductsQuery();
+
+  console.log(data?.data);
+
   return (
     <section className="py-12">
       <div className="max-w-[1240px] mx-auto px-5">
         <h1 className="text-5xl font-accent text-white text-center">
           LATEST NEWS
         </h1>
-
         <div className="flex flex-wrap justify-center gap-8 py-10">
-          {blog.map((b) => (
+          {data?.data.map((b: any) => (
             <div key={b.id} className="flex-1 min-w-[280px] max-w-[320px]">
               <BlogCard el={b} />
             </div>
