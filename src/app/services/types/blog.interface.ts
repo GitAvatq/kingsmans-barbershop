@@ -3,9 +3,9 @@ import { StaticImageData } from "next/image";
 export interface Blog {
   id: number;
   name: string;
-  text: string;
+  description: string;
   image: StaticImageData;
-  button: string;
+  loading?: boolean;
 }
 
 export interface BlogCardProps {

@@ -10,6 +10,7 @@ export const blogApi = createApi({
     getProducts: build.query<any, void>({
       query: () => ({
         url: "blog",
+        method: "GET",
       }),
     }),
   }),
