@@ -2,10 +2,10 @@ import { StaticImageData } from "next/image";
 
 export interface Blog {
   id: number;
-  title: string;
-  text: string;
+  name: string;
+  description: string;
   image: StaticImageData;
-  button: string;
+  loading?: boolean;
 }
 
 export interface BlogCardProps {

@@ -8,6 +8,7 @@ import {
 } from "next/font/google";
 import "./globals.css";
 import ReactThemeProvider from "./providers/theme-provider";
+import { ReduxProvider } from "./providers/reduxProvider";
 
 const joselin = Josefin_Slab({
   subsets: ["latin"],
@@ -51,7 +52,7 @@ export default function RootLayout({
         className={`${jockey.variable} ${inknut.variable} ${joselin.variable} ${abril.variable} ${julius.variable}`}
       >
         <ReactThemeProvider>
-          {children}
+          <ReduxProvider>{children}</ReduxProvider>
         </ReactThemeProvider>
       </body>
     </html>
