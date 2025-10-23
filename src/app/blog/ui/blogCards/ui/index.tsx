@@ -2,6 +2,7 @@ import React from "react";
 import { BlogCard } from "@/shared/blogCard/ui";
 import { useGetProductsQuery } from "@/features/blog/blogApi";
 import { Skeleton } from "@/components/ui/skeleton";
+import { TBlog } from "@/app/blog/types/blog.types";
 
 const Blog = () => {
   const { data, isError, isLoading } = useGetProductsQuery();
@@ -20,21 +21,21 @@ const Blog = () => {
           )}
           {isLoading
             ? skeletons.map((_, index) => (
-                <div
-                  key={index}
-                  className="flex-1 min-w-[280px] max-w-[320px] flex flex-col space-y-3"
-                >
-                  <Skeleton className="h-[250px] w-full rounded-xl bg-[#101010]" />
-                  <Skeleton className="h-6 w-32 rounded bg-[#101010]" />
-                  <Skeleton className="h-4 w-full rounded bg-[#101010]" />
-                  <Skeleton className="h-4 w-3/4 rounded bg-[#101010]" />
-                </div>
-              ))
-            : data?.data.map((b: any) => (
-                <div key={b.id} className="flex-1 min-w-[280px] max-w-[320px]">
-                  <BlogCard el={b} />
-                </div>
-              ))}
+              <div
+                key={index}
+                className="flex-1 min-w-[280px] max-w-[320px] flex flex-col space-y-3"
+              >
+                <Skeleton className="h-[250px] w-full rounded-xl bg-[#101010]" />
+                <Skeleton className="h-6 w-32 rounded bg-[#101010]" />
+                <Skeleton className="h-4 w-full rounded bg-[#101010]" />
+                <Skeleton className="h-4 w-3/4 rounded bg-[#101010]" />
+              </div>
+            ))
+            : data?.data.map((b: TBlog) => (
+              <div key={b.id} className="flex-1 min-w-[280px] max-w-[320px]">
+                <BlogCard el={b} />
+              </div>
+            ))}
         </div>
       </div>
     </section>

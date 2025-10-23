@@ -12,6 +12,8 @@ import { IValues } from "../types/cta.interface";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { useProcessContactsMutation } from "@/app/franchise/api";
+import { Spinner } from "@/components/ui/spinner"
 
 export const CTA = () => {
   const formSchema = z.object({
@@ -29,8 +31,11 @@ export const CTA = () => {
     },
   });
 
+  const [processContact, { isLoading, isError }] = useProcessContactsMutation()
+
   const onSubmit = (data: IValues) => {
     console.log(data);
+    processContact(data)
     form.reset();
   };
 
@@ -91,10 +96,12 @@ export const CTA = () => {
 
         <Button
           type="submit"
-          className="w-full bg-accent hover:bg-accent/90 text-white font-semibold py-2 px-4 rounded-lg transition-colors"
+          className="w-full bg-accent hover:bg-accent/90 text-white font-semibold py-2 px-4 rounded-lg transition-colors flex items-center"
         >
           Submit
+          {isLoading && <Spinner />}
         </Button>
+        {isError && <p className="py-5 px-2.5 text-2xl text-red-400">An error has occurred</p>}
       </form>
     </Form>
   );
