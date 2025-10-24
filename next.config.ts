@@ -9,6 +9,7 @@ const nextConfig: NextConfig = {
       "i.pinimg.com",
       "www.moderngentlemanmagazine.com",
       "encrypted-tbn0.gstatic.com",
+      "oldboybarbershop.com",
     ],
   },
 };

@@ -1,5 +1,3 @@
-import { StaticImageData } from "next/image";
-
 export interface IMaster {
   id: number;
   name: string;
@@ -10,4 +8,5 @@ export interface IMaster {
 
 export interface MasterCardProps {
   barber: IMaster;
+  isLoading: boolean;
 }
