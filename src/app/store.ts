@@ -2,14 +2,23 @@ import { blogApi } from "@/features/blog/blogApi";
 import { configureStore } from "@reduxjs/toolkit";
 import { setupListeners } from "@reduxjs/toolkit/query";
 import { ctaApi } from "./franchise/api";
+import { barbersApi } from "./barbers/api";
+import { barberDetailsApi } from "./barbers/[id]/api";
 
 export const store = configureStore({
   reducer: {
     [blogApi.reducerPath]: blogApi.reducer,
     [ctaApi.reducerPath]: ctaApi.reducer,
+    [barbersApi.reducerPath]: barbersApi.reducer,
+    [barberDetailsApi.reducerPath]: barberDetailsApi.reducer,
   },
   middleware: (defaultMiddleWare) =>
-    defaultMiddleWare().concat(blogApi.middleware, ctaApi.middleware),
+    defaultMiddleWare().concat(
+      blogApi.middleware,
+      ctaApi.middleware,
+      barbersApi.middleware,
+      barberDetailsApi.middleware
+    ),
 });
 
 setupListeners(store.dispatch);

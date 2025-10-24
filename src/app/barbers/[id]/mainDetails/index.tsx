@@ -1,9 +1,24 @@
+"use client"
 import React from "react";
 import Image from "next/image";
 import { FaInstagram, FaStar } from "react-icons/fa6";
 import { FaTelegramPlane } from "react-icons/fa";
+import { useParams } from "next/navigation";
+import { Skeleton } from "@/components/ui/skeleton";
+import { Spinner } from "@/components/ui/spinner";
+import { useGetDetailsQuery } from "../api";
 
 const BarbersDetails = () => {
+  const { id } = useParams()
+  const barberId = Number(id)
+  const { data, isLoading, isError } = useGetDetailsQuery(barberId)
+  console.log(data);
+  if (isLoading) return <Spinner className="size-8 text-yellow-500 absolute top-[50%] mx-[50%] " />
+  if (isError) {
+    console.log("Error:  something went wrong");
+  }
+  if (!data) return
+  const { name, image, location, rating, status, works, experience } = data
   return (
     <div className="relative bg-[url(/barbers-details.svg)] bg-cover bg-center">
       <div className="absolute inset-0 bg-black/60"></div>
@@ -18,17 +33,18 @@ const BarbersDetails = () => {
         >
           <div className="flex-shrink-0 rounded-xl overflow-hidden w-full md:w-[300px] h-[400px] shadow-md">
             <Image
-              src="/alymbek.webp"
-              alt="Alex Johnson"
+              src={image}
+              alt={name}
               width={400}
               height={544}
               className="object-cover w-full h-full"
             />
+            {isLoading && <Skeleton className="h-[544px] w-[400px] rounded bg-[#101010]" />}
           </div>
           <div className="flex flex-col justify-between flex-1">
             <div>
               <h2 className="text-3xl sm:text-4xl font-bold text-yellow-400">
-                Alex Johnson
+                {name}
               </h2>
               <p className="mt-4 text-base sm:text-lg leading-relaxed opacity-90">
                 Professional barber with 10 years of experience. Passionate
@@ -38,22 +54,20 @@ const BarbersDetails = () => {
               </p>
               <ul className="mt-6 space-y-2 text-base sm:text-lg">
                 <li>
-                  <span className="font-semibold">Status:</span> Kingsman Barber
+                  <span className="font-bold">Status:</span> {status}
                 </li>
                 <li>
-                  <span className="font-semibold">Age:</span> 44 years
+                  <span className="font-bold">Experience:</span> {experience}
                 </li>
                 <li>
-                  <span className="font-semibold">Experience:</span> 5 years
+                  <span className="font-bold">Location:</span>  {location}
                 </li>
               </ul>
               <div className="flex items-center gap-1 mt-4">
-                {[...Array(5)].map((_, i) => (
-                  <FaStar
-                    key={i}
-                    className="text-yellow-400 text-xl sm:text-2xl"
-                  />
-                ))}
+                <span className="font-bold">Rating:</span>
+                <FaStar
+                  className="text-yellow-400 text-xl sm:text-2xl"
+                />{rating}
               </div>
             </div>
 
@@ -80,6 +94,7 @@ const BarbersDetails = () => {
           </div>
         </div>
       </div>
+
     </div>
   );
 };
