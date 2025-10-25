@@ -10,6 +10,10 @@ const nextConfig: NextConfig = {
       "www.moderngentlemanmagazine.com",
       "encrypted-tbn0.gstatic.com",
       "oldboybarbershop.com",
+      "i.mdel.net",
+      "image-cdn.flowgpt.com",
+      "image-cdn.flowgpt.com",
+      "i1.sndcdn.com",
     ],
   },
 };

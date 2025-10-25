@@ -13,7 +13,7 @@ export const BlogCard = ({
       ) : (
         <Image
           src={image}
-          alt={name}
+          alt={"name"}
           fill
           className="object-cover transition-transform duration-500 group-hover:scale-110"
         />

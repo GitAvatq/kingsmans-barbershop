@@ -6,6 +6,7 @@ export interface Review {
   location: string;
   text: string;
   image: StaticImageData;
+  createdAt: string;
 }
 
 export interface ReviewCardProps {

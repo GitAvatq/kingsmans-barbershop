@@ -5,6 +5,7 @@ import { ctaApi } from "./franchise/api";
 import { barbersApi } from "./barbers/api";
 import { barberDetailsApi } from "./barbers/[id]/api";
 import { mastersApi } from "@/widgets/masters/api";
+import { reviewApi } from "./services/ui/rewievs/api";
 
 export const store = configureStore({
   reducer: {
@@ -13,6 +14,7 @@ export const store = configureStore({
     [barbersApi.reducerPath]: barbersApi.reducer,
     [barberDetailsApi.reducerPath]: barberDetailsApi.reducer,
     [mastersApi.reducerPath]: mastersApi.reducer,
+    [reviewApi.reducerPath]: reviewApi.reducer,
   },
   middleware: (defaultMiddleWare) =>
     defaultMiddleWare().concat(
@@ -20,7 +22,8 @@ export const store = configureStore({
       ctaApi.middleware,
       barbersApi.middleware,
       barberDetailsApi.middleware,
-      mastersApi.middleware
+      mastersApi.middleware,
+      reviewApi.middleware
     ),
 });
 
