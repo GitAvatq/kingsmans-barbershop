@@ -9,13 +9,14 @@ export const blogApi = createApi({
     baseUrl: basicUrl,
   }),
   endpoints: (build) => ({
-    getProducts: build.query<TBlog, void>({
+    getBlogs: build.query<TBlog[], void>({
       query: () => ({
         url: "blog",
         method: "GET",
       }),
+      transformResponse: (response: { data: TBlog[] }) => response.data,
     }),
   }),
 });
 
-export const { useGetProductsQuery } = blogApi;
+export const { useGetBlogsQuery } = blogApi;

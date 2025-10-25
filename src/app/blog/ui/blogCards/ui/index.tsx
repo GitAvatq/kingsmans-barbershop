@@ -1,11 +1,11 @@
 import React from "react";
 import { BlogCard } from "@/shared/blogCard/ui";
-import { useGetProductsQuery } from "@/features/blog/blogApi";
+import { useGetBlogsQuery } from "@/app/services/ui/blog/api/blogApi";
 import { Skeleton } from "@/components/ui/skeleton";
 import { TBlog } from "@/app/blog/types/blog.types";
 
 const Blog = () => {
-  const { data, isError, isLoading } = useGetProductsQuery();
+  const { data, isError, isLoading } = useGetBlogsQuery();
   const skeletons = Array.from({ length: 6 });
   return (
     <section className="py-12">
@@ -31,7 +31,7 @@ const Blog = () => {
                 <Skeleton className="h-4 w-3/4 rounded bg-[#101010]" />
               </div>
             ))
-            : data?.data.map((b: TBlog) => (
+            : data?.map((b: TBlog) => (
               <div key={b.id} className="flex-1 min-w-[280px] max-w-[320px]">
                 <BlogCard el={b} />
               </div>
