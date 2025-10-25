@@ -12,8 +12,8 @@ import { IValues } from "../types/cta.interface";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { useProcessContactsMutation } from "@/app/franchise/api";
 import { Spinner } from "@/components/ui/spinner"
+import { useProcessContactsMutation } from "../api";
 
 export const CTA = () => {
   const formSchema = z.object({
@@ -101,7 +101,7 @@ export const CTA = () => {
           Submit
           {isLoading && <Spinner />}
         </Button>
-        {isError && <p className="py-5 px-2.5 text-2xl text-red-400">An error has occurred</p>}
+        {isError && <p className="py-5 px-2.5 text-base text-red-400">An error has occurred</p>}
       </form>
     </Form>
   );

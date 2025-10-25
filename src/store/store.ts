@@ -1,11 +1,13 @@
 import { blogApi } from "@/app/services/ui/blog/api/blogApi";
 import { configureStore } from "@reduxjs/toolkit";
 import { setupListeners } from "@reduxjs/toolkit/query";
-import { ctaApi } from "./franchise/api";
-import { barbersApi } from "./barbers/api";
-import { barberDetailsApi } from "./barbers/[id]/api";
+import { barbersApi } from "../app/barbers/api";
+import { barberDetailsApi } from "../app/barbers/[id]/api";
 import { mastersApi } from "@/widgets/masters/api";
-import { reviewApi } from "./services/ui/rewievs/api";
+import { reviewApi } from "../app/services/ui/rewievs/api";
+import { authApi } from "@/features/auth/api";
+import { ctaApi } from "@/features/cta-form/api";
+import { userReducers } from "./user/user.slice";
 
 export const store = configureStore({
   reducer: {
@@ -15,6 +17,8 @@ export const store = configureStore({
     [barberDetailsApi.reducerPath]: barberDetailsApi.reducer,
     [mastersApi.reducerPath]: mastersApi.reducer,
     [reviewApi.reducerPath]: reviewApi.reducer,
+    [authApi.reducerPath]: authApi.reducer,
+    user: userReducers,
   },
   middleware: (defaultMiddleWare) =>
     defaultMiddleWare().concat(
@@ -23,8 +27,12 @@ export const store = configureStore({
       barbersApi.middleware,
       barberDetailsApi.middleware,
       mastersApi.middleware,
-      reviewApi.middleware
+      reviewApi.middleware,
+      authApi.middleware
     ),
 });
 
 setupListeners(store.dispatch);
+
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;
