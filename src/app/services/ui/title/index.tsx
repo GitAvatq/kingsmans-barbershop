@@ -1,9 +1,9 @@
 "use client";
-import { motion } from "framer-motion"
+import { motion } from "framer-motion";
 import React from "react";
 
 const Title = () => {
-  const text = "SERVICES"
+  const text = "SERVICES";
   return (
     <div className="inset-x-0 top-0 h-[40vh] flex items-center justify-center text-white z-10">
       <motion.h1 className="text-4xl md:text-6xl font-accent text-white text-center">
