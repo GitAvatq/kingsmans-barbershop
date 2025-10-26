@@ -8,6 +8,7 @@ import { reviewApi } from "../app/services/ui/rewievs/api";
 import { authApi } from "@/features/auth/api";
 import { ctaApi } from "@/features/cta-form/api";
 import { userReducers } from "./user/user.slice";
+import { servicesApi } from "@/app/services/api";
 
 export const store = configureStore({
   reducer: {
@@ -18,6 +19,7 @@ export const store = configureStore({
     [mastersApi.reducerPath]: mastersApi.reducer,
     [reviewApi.reducerPath]: reviewApi.reducer,
     [authApi.reducerPath]: authApi.reducer,
+    [servicesApi.reducerPath]: servicesApi.reducer,
     user: userReducers,
   },
   middleware: (defaultMiddleWare) =>
@@ -28,7 +30,8 @@ export const store = configureStore({
       barberDetailsApi.middleware,
       mastersApi.middleware,
       reviewApi.middleware,
-      authApi.middleware
+      authApi.middleware,
+      servicesApi.middleware
     ),
 });
 
