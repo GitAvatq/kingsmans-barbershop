@@ -8,6 +8,7 @@ import { reviewApi } from "../app/services/ui/rewievs/api";
 import { authApi } from "@/features/auth/api";
 import { ctaApi } from "@/features/cta-form/api";
 import { userReducers } from "./user/user.slice";
+import { servicesApi } from "@/app/services/api";
 import { fillialApi } from "@/entities/fillial/api";
 import { letterReducers } from "./letter/letter.slice";
 import { activeReducers } from "./activeBar/indext";
@@ -22,6 +23,7 @@ export const store = configureStore({
     [reviewApi.reducerPath]: reviewApi.reducer,
     [authApi.reducerPath]: authApi.reducer,
     [fillialApi.reducerPath]: fillialApi.reducer,
+    [servicesApi.reducerPath]: servicesApi.reducer,
     user: userReducers,
     letterState: letterReducers,
     active: activeReducers,
@@ -35,7 +37,8 @@ export const store = configureStore({
       mastersApi.middleware,
       reviewApi.middleware,
       authApi.middleware,
-      fillialApi.middleware
+      fillialApi.middleware,
+      servicesApi.middleware
     ),
 });
 
