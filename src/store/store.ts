@@ -8,6 +8,9 @@ import { reviewApi } from "../app/services/ui/rewievs/api";
 import { authApi } from "@/features/auth/api";
 import { ctaApi } from "@/features/cta-form/api";
 import { userReducers } from "./user/user.slice";
+import { fillialApi } from "@/entities/fillial/api";
+import { letterReducers } from "./letter/letter.slice";
+import { activeReducers } from "./activeBar/indext";
 
 export const store = configureStore({
   reducer: {
@@ -18,7 +21,10 @@ export const store = configureStore({
     [mastersApi.reducerPath]: mastersApi.reducer,
     [reviewApi.reducerPath]: reviewApi.reducer,
     [authApi.reducerPath]: authApi.reducer,
+    [fillialApi.reducerPath]: fillialApi.reducer,
     user: userReducers,
+    letterState: letterReducers,
+    active: activeReducers,
   },
   middleware: (defaultMiddleWare) =>
     defaultMiddleWare().concat(
@@ -28,7 +34,8 @@ export const store = configureStore({
       barberDetailsApi.middleware,
       mastersApi.middleware,
       reviewApi.middleware,
-      authApi.middleware
+      authApi.middleware,
+      fillialApi.middleware
     ),
 });
 

@@ -1,7 +1,7 @@
 import { createApi } from "@reduxjs/toolkit/query/react";
 import { fetchBaseQuery } from "@reduxjs/toolkit/query";
 import { basicUrl } from "@/shared/const";
-import { IAuth } from "../types/auth.interface";
+import { IAuth, IForm } from "../types/auth.interface";
 
 export const authApi = createApi({
   reducerPath: "authApi",
@@ -9,8 +9,8 @@ export const authApi = createApi({
     baseUrl: basicUrl,
   }),
   endpoints: (build) => ({
-    register: build.mutation<IAuth, IAuth>({
-      query: (data: IAuth) => ({
+    register: build.mutation<IAuth, IForm>({
+      query: (data: IForm) => ({
         url: "register",
         method: "POST",
         body: data,

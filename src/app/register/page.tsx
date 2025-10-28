@@ -20,7 +20,7 @@ const Register = () => {
                     <h4 className="text-3xl sm:text-4xl lg:text-5xl leading-tight">
                         Get Start It with <span className="text-gold">Kingsmans</span>
                     </h4>
-                    <AuthForm />
+                    <AuthForm register />
                     <div className="text-lg sm:text-xl font-base max-w-[220px]">
                         Have an account?{" "}
                         <Link href="/login" className="text-gold cursor-pointer">

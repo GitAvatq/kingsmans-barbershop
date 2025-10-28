@@ -31,7 +31,7 @@ export default function FranchiseMap() {
                 <ComposableMap projectionConfig={{ scale: scaleValue }}>
                     <Geographies geography={geoUrl} >
                         {({ geographies }) =>
-                            geographies.filter((geo) => ["USA", "Malaysia", "Kyrgyzstan", "Russia", "Mongolia", "Moldova", "Estonia", "Germany", "Switzerland", "Turkey", "China", "Italy", "United Kingdom", "Philippines", "Saudi Arabia", "Kazakhstan"].includes(geo.properties.name)).map((geo) => (
+                            geographies.filter((geo) => ["Kyrgyzstan", "Russia", "Mongolia", "China", "Saudi Arabia", "Kazakhstan"].includes(geo.properties.name)).map((geo) => (
                                 <Geography
                                     key={geo.rsmKey}
                                     geography={geo}
@@ -54,8 +54,11 @@ export default function FranchiseMap() {
             <div>
                 {hoveredCountry && (
                     <>
-                        <div className="absolute top-1/2 right-[100px] bg-accent  dark:bg-black p-2 rounded shadow-lg z-10 h-40 w-50 text-center">
-                            <h3 className="font-bold font-base text-2xl">{hoveredCountry}</h3>
+                        <div className="absolute top-1/2 right-[100px] bg-accent  dark:bg-black p-2 rounded shadow-lg z-10 h-40 w-50 text-center py-5">
+                            <h3 className="font-bold font-footer text-2xl">
+                                {hoveredCountry}
+                                <p className="py-7 text-gray-600 text-xl font-footer">{hoveredCountry === "Kyrgyzstan" ? "open fillals 453" : hoveredCountry === "Russia" ? "open fillals 352" : hoveredCountry === "Kazakhstan" ? "open fillals 223" : hoveredCountry === "Mongolia" ? "open fillials 43" : hoveredCountry === "China" ? "open fillials 74" : hoveredCountry === "Saudi Arabia" ? "open fillials 36" : ""}</p>
+                            </h3>
                         </div>
                     </>
                 )}

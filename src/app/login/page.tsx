@@ -20,8 +20,8 @@ const Login = () => {
                     <h4 className="text-3xl sm:text-4xl lg:text-5xl leading-tight">
                         Get Start It with <span className="text-gold">Kingsmans</span>
                     </h4>
-                    <AuthForm />
-                    <div className="block lg:hidden mt-8">
+                    <AuthForm register={false} />
+                    < div className="block lg:hidden mt-8">
                         <SocialAuth />
                     </div>
                 </motion.div>

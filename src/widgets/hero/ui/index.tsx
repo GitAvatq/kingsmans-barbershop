@@ -1,7 +1,21 @@
+"use client"
+import {
+    Sheet,
+    SheetClose,
+    SheetContent,
+    SheetDescription,
+    SheetFooter,
+    SheetHeader,
+    SheetTitle,
+    SheetTrigger,
+} from "@/components/ui/sheet";
 import Image from 'next/image';
 import React from 'react';
 import hero from "@public/welcome-hero.png"
 import icon from "@public/iconmustache.svg"
+import { useDispatch, useSelector } from "react-redux";
+import { Button } from "@/components/ui/button";
+import ProfileSidebar from "@/widgets/profileSidebar";
 
 const Hero = () => {
     return (
@@ -12,7 +26,30 @@ const Hero = () => {
                     <h1 className='absolute top-40 text-center text-white font-accent  text-4xl max-sm:text-2xl'>KINGSMAN <br /> BARBERS</h1>
                     <Image className='absolute top-70' src={icon} width={120} height={120} alt='icon' />
                 </div>
-                <button className='cursor-pointer active:text-accent active:bg-white hover:bg-white hover:text-accent transition-colors bg-accent px-10 w-44 py-3 max-sm:w-36 max-sm:px-5 rounded-2xl uppercase font-accent'>Sign Up</button>
+                <Sheet>
+                    <SheetTrigger asChild>
+                        <button className='cursor-pointer active:text-accent active:bg-white hover:bg-white hover:text-accent transition-colors bg-accent px-10 w-44 py-3 max-sm:w-36 max-sm:px-5 rounded-2xl uppercase font-accent'>Sign Up</button>
+                    </SheetTrigger>
+                    <SheetContent className="text-white">
+                        <SheetHeader>
+                            <SheetTitle hidden className="text-2xl font-bold text-white">Profile</SheetTitle>
+                            <SheetDescription hidden className="text-gray-300 text-[14px">
+                                Hi <span className="text-gold">KINGSMAN</span> 💈 Keep track of your appointments, explore your grooming history, and stay sharp with style made for kings.
+                            </SheetDescription>
+                        </SheetHeader>
+                        <div className="pb-10">
+                        <ProfileSidebar />
+                        </div>
+                        <SheetFooter className="mt-auto">
+                            <SheetClose asChild>
+                                <Button variant="outline" className="w-full cursor-pointer text-white">
+                                    Close
+                                </Button>
+                            </SheetClose>
+                        </SheetFooter>
+                    </SheetContent>
+                </Sheet>
+
             </div>
         </div>
     );

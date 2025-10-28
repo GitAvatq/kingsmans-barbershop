@@ -14,6 +14,10 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Spinner } from "@/components/ui/spinner"
 import { useProcessContactsMutation } from "../api";
+import { Toaster } from "@/components/ui/sonner";
+import { ShieldCheck, ShieldX } from "lucide-react";
+import { useEffect } from "react";
+import { toast } from "sonner";
 
 export const CTA = () => {
   const formSchema = z.object({
@@ -31,7 +35,7 @@ export const CTA = () => {
     },
   });
 
-  const [processContact, { isLoading, isError }] = useProcessContactsMutation()
+  const [processContact, { isLoading, isError, isSuccess }] = useProcessContactsMutation()
 
   const onSubmit = (data: IValues) => {
     console.log(data);
@@ -39,8 +43,17 @@ export const CTA = () => {
     form.reset();
   };
 
+  useEffect(() => {
+    if (isSuccess) {
+      toast.success("Success! We'll be in touch soon.")
+    } else if (isError) {
+      toast.error("Something went wrong. Please try again")
+    }
+  }, [isSuccess, isError])
+
   return (
     <Form {...form}>
+      <Toaster toastOptions={{ style: { color: "white" } }} theme="dark" position="top-center" icons={{ success: <ShieldCheck />, error: <ShieldX /> }} />
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
         <div className="grid max-md:grid-cols-1 grid-cols-2 max-md:gap-4 gap-6">
           <FormField
@@ -103,6 +116,7 @@ export const CTA = () => {
         </Button>
         {isError && <p className="py-5 px-2.5 text-base text-red-400">An error has occurred</p>}
       </form>
+
     </Form>
   );
 };

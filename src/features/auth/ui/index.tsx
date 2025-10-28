@@ -9,13 +9,15 @@ import { Button } from "@/components/ui/button";
 import { Spinner } from '@/components/ui/spinner';
 import { useRegisterMutation } from '../api';
 import { toast, Toaster } from 'sonner';
-import { IAuth } from '../types/auth.interface';
+import { IForm } from '../types/auth.interface';
 import { ShieldX } from 'lucide-react';
 import { ShieldCheck } from 'lucide-react';
 import { userActions } from '@/store/user/user.slice';
 import { useDispatch } from 'react-redux';
+import { useRouter } from 'next/navigation';
+import { paths } from '@/shared/routing/paths';
 
-const AuthForm = () => {
+const AuthForm = ({ register }: { register: boolean }) => {
     const formSchema = z.object({
         name: z.string().min(4, "The name must contain at least 4 length"),
         email: z.string().email("Invalid email"),
@@ -34,22 +36,25 @@ const AuthForm = () => {
         }
     })
     const dispatch = useDispatch()
+    const route = useRouter()
     const [handleRegister, { isLoading, isError, isSuccess, data }] = useRegisterMutation()
-    const onSubmit = (values: IAuth) => {
+    const onSubmit = (values: IForm) => {
         console.log(values);
         handleRegister(values)
         form.reset()
     }
-    console.log(data);
+    console.log(data?.data);
 
     useEffect(() => {
         if (isSuccess && data) {
             toast.success("Welcome! Your account has been registered")
-            dispatch(userActions.addUser(String(data.token)))
+            dispatch(userActions.setToken(String(data.token)))
+            dispatch(userActions.setUser(data.data))
+            setTimeout(() => { route.push(paths.home) }, 1500)
         } else if (isError) {
             toast.error("Something went wrong. Please try again")
         }
-    }, [isSuccess, isError, data, dispatch])
+    }, [isSuccess, isError, data, dispatch, route])
     return (
         <Form {...form}>
             <Toaster theme='dark' position='top-center' icons={{ success: <ShieldCheck />, error: <ShieldX /> }} />
@@ -58,17 +63,18 @@ const AuthForm = () => {
                     control={form.control}
                     name="name"
                     render={({ field }) => (
-                        <FormItem>
-                            <FormLabel className="text-white">Username</FormLabel>
-                            <FormControl>
-                                <Input
-
-                                    {...field}
-                                    className="bg-white/10 border-white/20 text-white placeholder:text-gray-400"
-                                />
-                            </FormControl>
-                            <FormMessage />
-                        </FormItem>
+                        <>
+                            {register && <FormItem>
+                                <FormLabel className="text-white">Username</FormLabel>
+                                <FormControl>
+                                    <Input
+                                        {...field}
+                                        className="bg-white/10 border-white/20 text-white placeholder:text-gray-400"
+                                    />
+                                </FormControl>
+                                <FormMessage />
+                            </FormItem>}
+                        </>
                     )}
                 />
                 <FormField
@@ -107,7 +113,7 @@ const AuthForm = () => {
                 />
                 <Button
                     type="submit"
-                    className="w-full bg-accent hover:bg-accent/90 text-white font-semibold py-2 px-4 rounded-lg transition-colors flex items-center"
+                    className="w-full bg-accent hover:bg-accent/90 text-white font-semibold py-2 px-4 rounded-lg transition-colors flex items-center cursor-pointer"
                 >
                     Submit
                     {isLoading && <Spinner />}

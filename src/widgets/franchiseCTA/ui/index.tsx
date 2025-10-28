@@ -1,4 +1,6 @@
 import { Button } from '@/components/ui/button';
+import { paths } from '@/shared/routing/paths';
+import Link from 'next/link';
 import React from 'react';
 
 const FranchiseCTA = () => {
@@ -8,7 +10,9 @@ const FranchiseCTA = () => {
                 <div className='flex flex-col items-start justify-center gap-3 h-52'>
                     <h3 className='text-6xl font-medium font-abril max-md:text-4xl max-sm:text-3xl'>Learn about the franchise</h3>
                     <p className='text-2xl uppercase max-sm:text-base'>KINGSMAN BARBERSHOP</p>
-                    <Button className='uppercase hover:text-gold hover:bg-white cursor-pointer '>Book Now</Button>
+                    <Link href={paths.franchise}>
+                        <Button className='uppercase hover:text-gold hover:bg-white cursor-pointer '>Book Now</Button>
+                    </Link>
                 </div>
             </div>
         </section>
