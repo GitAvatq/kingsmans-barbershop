@@ -16,7 +16,7 @@ import Link from "next/link";
 import { paths } from "@/shared/routing/paths";
 import { LogOut } from "lucide-react";
 import { userActions } from "@/store/user/user.slice";
-import ProfileSidebar from "@/widgets/profileSidebar";
+import AppointmentSidebar from "@/widgets/appointmentSidebar";
 import { useDispatch, useSelector } from "react-redux";
 import { Button } from "@/components/ui/button";
 
@@ -47,7 +47,7 @@ const Header = () => {
                   Hi <span className="text-gold">KINGSMAN</span> 💈 Keep track of your appointments, explore your grooming history, and stay sharp with style made for kings.
                 </SheetDescription>
               </SheetHeader>
-              <ProfileSidebar />
+              <AppointmentSidebar />
               <SheetFooter className="mt-auto">
                 <Button onClick={() => dispatch(userActions.logout())} variant="outline" className="flex items-center justify-center w-full cursor-pointer text-white">
                   <LogOut /> Logout

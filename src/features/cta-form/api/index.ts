@@ -8,7 +8,7 @@ export const ctaApi = createApi({
     baseUrl: basicUrl,
   }),
   endpoints: (build) => ({
-    processContacts: build.mutation<null,IValues>({
+    processContacts: build.mutation<IValues,IValues>({
       query: (body) => ({
         url: "contact",
         method: "POST",

@@ -1,3 +1,4 @@
+"use client"
 import {
     Avatar,
     AvatarFallback,
@@ -7,9 +8,16 @@ import { Button } from "@/components/ui/button";
 
 import React from 'react';
 import { ChevronsRight } from 'lucide-react';
-
+import { useDispatch } from "react-redux";
+import { activeActions } from "@/store/activeBar/indext";
 
 const AppointmentForm = () => {
+    const dispatch = useDispatch()
+    const handleTransition = () => {
+        return dispatch(activeActions.setNextPart(true))
+    }
+
+
     return (
         <div>
             <div>
@@ -18,7 +26,8 @@ const AppointmentForm = () => {
                     <AvatarFallback>KB</AvatarFallback>
                 </Avatar>
                 <p className="uppercase text-2xl font-black font-base mt-3"><span className="text-gold mb-10">Kingsman</span> barbershop</p>
-                <Button className="mt-10 bg-gold flex items-center justify-center cursor-pointer hover:bg-accent duration-300">Start Booking   <ChevronsRight /></Button>
+
+                <Button onClick={handleTransition} className="mt-10 bg-gold flex items-center justify-center cursor-pointer hover:bg-accent duration-300">Start Booking   <ChevronsRight /></Button>
             </div>
         </div>
     );

@@ -10,7 +10,7 @@ interface IState {
 
 const initialState: IState = {
   token: localStorage.getItem("token") || "",
-  user: userPayloadFromStorage ? JSON.parse(userPayloadFromStorage) : null,
+  user: userPayloadFromStorage ? JSON.parse(userPayloadFromStorage) : null, 
 };
 
 export const userSlice = createSlice({

@@ -12,6 +12,8 @@ import { servicesApi } from "@/app/services/api";
 import { fillialApi } from "@/entities/fillial/api";
 import { letterReducers } from "./letter/letter.slice";
 import { activeReducers } from "./activeBar/indext";
+import { appointmentReducers } from "./appointment";
+import { appointmentApi } from "@/widgets/appointmentSidebar/api";
 
 export const store = configureStore({
   reducer: {
@@ -24,9 +26,11 @@ export const store = configureStore({
     [authApi.reducerPath]: authApi.reducer,
     [fillialApi.reducerPath]: fillialApi.reducer,
     [servicesApi.reducerPath]: servicesApi.reducer,
+    [appointmentApi.reducerPath]:appointmentApi.reducer,
     user: userReducers,
     letterState: letterReducers,
     active: activeReducers,
+    appointment: appointmentReducers,
   },
   middleware: (defaultMiddleWare) =>
     defaultMiddleWare().concat(
@@ -38,7 +42,8 @@ export const store = configureStore({
       reviewApi.middleware,
       authApi.middleware,
       fillialApi.middleware,
-      servicesApi.middleware
+      servicesApi.middleware,
+      appointmentApi.middleware
     ),
 });
 

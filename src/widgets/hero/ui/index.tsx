@@ -13,9 +13,8 @@ import Image from 'next/image';
 import React from 'react';
 import hero from "@public/welcome-hero.png"
 import icon from "@public/iconmustache.svg"
-import { useDispatch, useSelector } from "react-redux";
 import { Button } from "@/components/ui/button";
-import ProfileSidebar from "@/widgets/profileSidebar";
+import AppointmentSidebar from "@/widgets/appointmentSidebar";
 
 const Hero = () => {
     return (
@@ -38,7 +37,7 @@ const Hero = () => {
                             </SheetDescription>
                         </SheetHeader>
                         <div className="pb-10">
-                        <ProfileSidebar />
+                        <AppointmentSidebar />
                         </div>
                         <SheetFooter className="mt-auto">
                             <SheetClose asChild>
