@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { RootState } from "@/store/store";
 import { useSelector } from "react-redux";
 import NextPage from "./ui/next-page";
@@ -7,22 +7,15 @@ import { useInitializeAppointmentMutation } from "./api";
 import { useEffect } from "react";
 
 export default function AppointmentSidebar() {
-    const doesNext = useSelector((state: RootState) => state.active.nextPart)
-    const data = useSelector((state: RootState) => state.appointment.appointment)
-    const [processAppointment, { isLoading, isError, data: ServerData }] = useInitializeAppointmentMutation()
-    useEffect(() => {
-        if (data) {
-            processAppointment(data)
+  const doesNext = useSelector((state: RootState) => state.active.nextPart);
+  const data = useSelector((state: RootState) => state.appointment.appointment);
+  const [processAppointment, { isLoading, isError, data: ServerData }] =
+    useInitializeAppointmentMutation();
+  useEffect(() => {
+    if (data) {
+      processAppointment(data);
+    }
+  }, [data, processAppointment]);
 
-        }
-    }, [data, processAppointment])
-
-    console.log(ServerData);
-
-
-    return (
-        <>
-            {doesNext ? <NextPage /> : <StartPage />}
-        </>
-    );
+  return <>{doesNext ? <NextPage /> : <StartPage />}</>;
 }
