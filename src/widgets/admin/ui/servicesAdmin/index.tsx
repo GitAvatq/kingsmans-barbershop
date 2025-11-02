@@ -2,14 +2,18 @@
 import { ServicesList } from "@/widgets/barbdersServices/types/interface.list";
 import React from "react";
 import { useForm } from "react-hook-form";
+import { usePostServiceMutation } from "../../api";
 
 const ServicesAdmin = () => {
   const { register, handleSubmit, formState } = useForm<ServicesList>();
+  const [service, { data, isLoading }] = usePostServiceMutation();
   const onSubmit = (dataValue: ServicesList) => {
     console.log(dataValue);
+    service(dataValue);
   };
 
   const nameError = formState.errors.name?.message;
+  1;
   const priceError = formState.errors.price?.message;
 
   return (
@@ -49,9 +53,9 @@ const ServicesAdmin = () => {
 
           <button
             type="submit"
-            className="mt-4 bg-blue-600 hover:bg-blue-700 text-white py-2 rounded transition-all"
+            className="mt-4 bg-accent hover:bg-gold text-white py-2 rounded transition-all"
           >
-            add
+            {isLoading ? "Adding" : "Add"}
           </button>
         </form>
       </div>

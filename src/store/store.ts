@@ -16,6 +16,7 @@ import { appointmentApi } from "@/widgets/appointmentSidebar/api";
 import { fillialReducers } from "./fillial";
 import { barbersReducers } from "./masters";
 import { cancelApi } from "@/widgets/appointmentSidebar/ui/start-page/api";
+import { adminApi } from "@/widgets/admin/api";
 
 export const store = configureStore({
   reducer: {
@@ -29,6 +30,7 @@ export const store = configureStore({
     [servicesApi.reducerPath]: servicesApi.reducer,
     [appointmentApi.reducerPath]: appointmentApi.reducer,
     [cancelApi.reducerPath]: cancelApi.reducer,
+    [adminApi.reducerPath]: adminApi.reducer,
     user: userReducers,
     letterState: letterReducers,
     active: activeReducers,
@@ -47,7 +49,8 @@ export const store = configureStore({
       fillialApi.middleware,
       servicesApi.middleware,
       appointmentApi.middleware,
-      cancelApi.middleware
+      cancelApi.middleware,
+      adminApi.middleware
     ),
 });
 

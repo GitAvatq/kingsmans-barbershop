@@ -2,13 +2,17 @@
 import { DataBarbers } from "@/app/barbers/ui/listBarbers/types/listBarbers.interface";
 import React from "react";
 import { useForm } from "react-hook-form";
+import { usePostBarberMutation } from "../../api";
 
 const BarbersAdmin = () => {
   const { register, handleSubmit, formState } = useForm<DataBarbers>();
-
+  const [barber, { data, isLoading }] = usePostBarberMutation();
   const onSubmit = (dataValue: DataBarbers) => {
     console.log(dataValue);
+    // barber(dataValue);
   };
+
+  console.log(data);
 
   const nameError = formState.errors.name?.message;
   const imageError = formState.errors.image?.message;
@@ -148,9 +152,9 @@ const BarbersAdmin = () => {
 
           <button
             type="submit"
-            className="mt-4 bg-blue-600 hover:bg-blue-700 text-white py-2 rounded transition-all"
+            className="cursor-pointer mt-4 bg-accent hover:bg-gold text-white py-2 rounded transition-all"
           >
-            add
+            {isLoading ? "Adding..." : "Add"}
           </button>
         </form>
       </div>

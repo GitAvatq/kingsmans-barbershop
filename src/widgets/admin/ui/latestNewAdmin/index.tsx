@@ -2,12 +2,14 @@
 import { TBlog } from "@/app/blog/types/blog.types";
 import React from "react";
 import { useForm } from "react-hook-form";
+import { usePostLatestNewsMutation } from "../../api";
 
 const LatestNewsAdmin = () => {
   const { register, handleSubmit, formState } = useForm<TBlog>();
-
+  const [news, { isLoading, data }] = usePostLatestNewsMutation();
   const onSubmit = (dataValue: TBlog) => {
     console.log(dataValue);
+    news(dataValue);
   };
 
   const nameError = formState.errors.name?.message;
@@ -67,9 +69,9 @@ const LatestNewsAdmin = () => {
 
           <button
             type="submit"
-            className="mt-4 bg-blue-600 hover:bg-blue-700 text-white py-2 rounded transition-all"
+            className="mt-4 bg-accent hover:bg-gold text-white py-2 rounded transition-all"
           >
-            add
+            {isLoading ? "Adding..." : "Add"}
           </button>
         </form>
       </div>
