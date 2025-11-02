@@ -14,19 +14,22 @@ export const appointmentApi = createApi({
             return headers;
         }
     }),
-    endpoints: (build) => ({    
+    tagTypes: ['Appointments'],
+    endpoints: (build) => ({
         initializeAppointment: build.mutation<void, IAppointment>({
             query: (body) => ({
                 url: "appointments",
                 method: "POST",
                 body,
-            })
+            }),
+            invalidatesTags: ["Appointments"]
         }),
         getAppointments: build.query({
             query: () => ({
                 url: "appointments/get",
                 method: "GET"
             }),
+            providesTags: ["Appointments"],
             transformResponse: (response: { data: any }) => response.data
         }),
     })

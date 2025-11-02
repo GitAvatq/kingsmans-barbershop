@@ -15,3 +15,8 @@ export interface IAuthData {
   id: string;
   name: string;
 }
+
+export interface ILoginForm {
+  email: string;
+  password: string;
+}

@@ -13,4 +13,5 @@ export interface DataBarbers {
 
 export interface DataBarbersCardProps {
   barber: DataBarbers;
+  isLoading?: boolean;
 }

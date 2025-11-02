@@ -3,7 +3,6 @@ import { configureStore } from "@reduxjs/toolkit";
 import { setupListeners } from "@reduxjs/toolkit/query";
 import { barbersApi } from "../app/barbers/api";
 import { barberDetailsApi } from "../app/barbers/[id]/api";
-import { mastersApi } from "@/widgets/masters/api";
 import { reviewApi } from "../app/services/ui/rewievs/api";
 import { authApi } from "@/features/auth/api";
 import { ctaApi } from "@/features/cta-form/api";
@@ -14,6 +13,9 @@ import { letterReducers } from "./letter/letter.slice";
 import { activeReducers } from "./activeBar/indext";
 import { appointmentReducers } from "./appointment";
 import { appointmentApi } from "@/widgets/appointmentSidebar/api";
+import { fillialReducers } from "./fillial";
+import { barbersReducers } from "./masters";
+import { cancelApi } from "@/widgets/appointmentSidebar/ui/start-page/api";
 
 export const store = configureStore({
   reducer: {
@@ -21,16 +23,18 @@ export const store = configureStore({
     [ctaApi.reducerPath]: ctaApi.reducer,
     [barbersApi.reducerPath]: barbersApi.reducer,
     [barberDetailsApi.reducerPath]: barberDetailsApi.reducer,
-    [mastersApi.reducerPath]: mastersApi.reducer,
     [reviewApi.reducerPath]: reviewApi.reducer,
     [authApi.reducerPath]: authApi.reducer,
     [fillialApi.reducerPath]: fillialApi.reducer,
     [servicesApi.reducerPath]: servicesApi.reducer,
-    [appointmentApi.reducerPath]:appointmentApi.reducer,
+    [appointmentApi.reducerPath]: appointmentApi.reducer,
+    [cancelApi.reducerPath]: cancelApi.reducer,
     user: userReducers,
     letterState: letterReducers,
     active: activeReducers,
     appointment: appointmentReducers,
+    masters: barbersReducers,
+    fillialById: fillialReducers,
   },
   middleware: (defaultMiddleWare) =>
     defaultMiddleWare().concat(
@@ -38,12 +42,12 @@ export const store = configureStore({
       ctaApi.middleware,
       barbersApi.middleware,
       barberDetailsApi.middleware,
-      mastersApi.middleware,
       reviewApi.middleware,
       authApi.middleware,
       fillialApi.middleware,
       servicesApi.middleware,
-      appointmentApi.middleware
+      appointmentApi.middleware,
+      cancelApi.middleware
     ),
 });
 

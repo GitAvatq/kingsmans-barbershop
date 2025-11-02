@@ -1,11 +1,11 @@
+"use client"
 import React from 'react';
 import { IFillialProps } from '../../types/fillial.types';
 import Link from 'next/link';
-import { paths } from '@/shared/routing/paths';
 const FillialCard = ({ el }: IFillialProps) => {
     return (
-        <div className="shrink-0 py-5 px-5 w-45 max-w-45 h-35 flex items-center justify-between flex-col border border-gold hover:border-white">
-            <Link href={paths.home}>
+        <div className="shrink-0 py-5 px-5 w-45 max-w-45 h-35 flex items-center justify-between flex-col border border-gold">
+            <Link href={`${el.id}`}>
                 <h4
                     className="relative
                     text-gold text-2xl font-base uppercase

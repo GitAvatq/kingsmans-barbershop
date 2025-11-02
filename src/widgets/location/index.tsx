@@ -15,7 +15,7 @@ const markerIcon = new L.Icon({
 
 const Location = () => {
     return (
-        <section className="bg-white">
+        <section className="bg-white relative z-[610]">
             <div className="max-w-[1240px] px-5 mx-auto">
                 <div className="py-7">
                     <h1 className="text-6xl mt-6 pt-10 text-center text-black font-base max-md:text-4xl">

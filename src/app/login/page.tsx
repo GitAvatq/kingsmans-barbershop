@@ -2,9 +2,9 @@
 import React from 'react';
 import banner from "@public/register-login-bg.jpg"
 import Image from 'next/image';
-import AuthForm from '@/features/auth/ui';
 import { motion } from "framer-motion";
 import SocialAuth from '@/features/social-auth/ui';
+import LoginForm from '@/features/auth/ui/login';
 
 
 const Login = () => {
@@ -20,7 +20,7 @@ const Login = () => {
                     <h4 className="text-3xl sm:text-4xl lg:text-5xl leading-tight">
                         Get Start It with <span className="text-gold">Kingsmans</span>
                     </h4>
-                    <AuthForm register={false} />
+                    <LoginForm />
                     < div className="block lg:hidden mt-8">
                         <SocialAuth />
                     </div>
