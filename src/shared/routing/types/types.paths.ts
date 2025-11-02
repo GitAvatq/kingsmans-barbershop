@@ -12,4 +12,5 @@ export interface Paths {
   register: string;
   login: string;
   fillialId: string;
+  admin: string;
 }

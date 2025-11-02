@@ -29,4 +29,5 @@ export const items = [
     text: "ABOUT US",
     path: paths.aboutUs,
   },
+  { text: "ADMIN", path: paths.admin },
 ];
