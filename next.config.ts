@@ -14,6 +14,11 @@ const nextConfig: NextConfig = {
       "image-cdn.flowgpt.com",
       "image-cdn.flowgpt.com",
       "i1.sndcdn.com",
+      "blog.clover.com",
+      "uppercutdeluxe.com",
+      "imageio.forbes.com",
+      "www.bercutbarbershop.com",
+      "mrcolt.ua",
     ],
   },
 };

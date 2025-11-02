@@ -9,7 +9,6 @@ import {
 import React from "react";
 import { Logo } from "../ui/logo/index";
 import { Menu } from "./menu/ui";
-import { Profile } from "./profile";
 import { Sheet, SheetContent, SheetTrigger, } from "@/components/ui/sheet"
 import { RootState } from "@/store/store";
 import Link from "next/link";
@@ -19,14 +18,13 @@ import { userActions } from "@/store/user/user.slice";
 import AppointmentSidebar from "@/widgets/appointmentSidebar";
 import { useDispatch, useSelector } from "react-redux";
 import { Button } from "@/components/ui/button";
+import { ClickMeButton } from "@/shared/signUpButton/ui";
 
 const Header = () => {
-
   const token = useSelector((state: RootState) => state.user.token)
   const payload = token ? JSON.parse(atob(token.split('.')[1])) : ""
   const dispatch = useDispatch()
 
-  console.log(payload);
 
   return (
     <header className="w-full py-6 px-5 text-white font-base z-90 top-0">
@@ -34,10 +32,10 @@ const Header = () => {
         <Logo />
         <Menu />
         {payload ?
-          <Sheet>
-            <SheetTrigger asChild>
-              <button>
-                <Profile />
+          <Sheet modal={false}>
+            <SheetTrigger asChild className="z-[600]">
+              <button type="button" tabIndex={-1}>
+                <ClickMeButton />
               </button>
             </SheetTrigger>
             <SheetContent className="text-white">
@@ -49,11 +47,13 @@ const Header = () => {
               </SheetHeader>
               <AppointmentSidebar />
               <SheetFooter className="mt-auto">
-                <Button onClick={() => dispatch(userActions.logout())} variant="outline" className="flex items-center justify-center w-full cursor-pointer text-white">
+                <Button type="button" onClick={() => dispatch(userActions.logout())} variant="outline" className="flex items-center justify-center w-full cursor-pointer text-white">
                   <LogOut /> Logout
                 </Button>
-                <SheetClose asChild>
-                  <Button variant="outline" className="w-full cursor-pointer text-white">
+                <SheetClose hidden asChild>
+                  <Button onClick={(e) => {
+                    console.log(document.activeElement)
+                  }} variant="outline" type="button" className="w-full cursor-pointer text-white">
                     Close
                   </Button>
                 </SheetClose>

@@ -2,7 +2,6 @@
 import { Button } from '@/components/ui/button';
 import { activeActions } from '@/store/activeBar/indext';
 import { appointmentActions } from '@/store/appointment';
-import { RootState } from '@/store/store';
 import React from 'react';
 import { useDispatch } from 'react-redux';
 
@@ -19,7 +18,6 @@ const Notification = ({ nextChoose, firstStep, secondStep, thirdStep, date }: { 
             dispatch(appointmentActions.setDate(date))
             dispatch(activeActions.setDatePart(false))
             dispatch(activeActions.setNextPart(false))
-            window.location.reload();
         }
     }
 

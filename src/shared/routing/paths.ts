@@ -9,6 +9,7 @@ export const paths: Paths = {
   contacts: "/contacts",
   aboutUs: "/aboutUs",
   fillial: "/fillial",
+  fillialId: "/:id",
   profile: "/profile",
   favorites: "/profile/favorites",
   register: "/register",

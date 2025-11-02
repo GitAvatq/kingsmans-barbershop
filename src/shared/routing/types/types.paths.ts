@@ -11,4 +11,5 @@ export interface Paths {
   favorites: string;
   register: string;
   login: string;
+  fillialId: string;
 }

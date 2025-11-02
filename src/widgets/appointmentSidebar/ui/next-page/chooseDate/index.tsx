@@ -15,7 +15,6 @@ import { ChevronDownIcon } from "lucide-react";
 export const ChooseDate = () => {
     const [open, setOpen] = React.useState(false);
     const [dateTime, setDateTime] = React.useState<Date | null>(null);
-    console.log(dateTime);
     const isoDate = dateTime?.toISOString()
     return (
         <>
