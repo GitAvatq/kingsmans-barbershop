@@ -15,6 +15,13 @@ export const fillialApi = createApi({
       }),
       transformResponse: (response: { data: IFillial[] }) => response.data,
     }),
+    getFillialById: build.query<any, number>({
+      query: (id: number) => ({
+        url: `fillials/${id}`,
+        method: "GET",
+      }),
+      transformResponse: (response: { data: any }) => response.data,
+    }),
     searchFillials: build.query<any, void>({
       query: () => ({
         url: "fillials/search",
@@ -25,4 +32,4 @@ export const fillialApi = createApi({
   }),
 });
 
-export const { useGetFillialsQuery, useLazySearchFillialsQuery } = fillialApi;
+export const { useGetFillialsQuery, useLazySearchFillialsQuery , useGetFillialByIdQuery} = fillialApi;

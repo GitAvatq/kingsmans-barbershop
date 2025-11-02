@@ -7,14 +7,13 @@ import {
     DrawerHeader,
     DrawerTitle,
 } from "@/components/ui/drawer"
-import { Input } from "@/components/ui/input"
 import { useGetFillialsQuery } from "../api"
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 import FillialCard from "./fillialCard"
 import Letters from "./letters"
-import { FillialCardSkeleton } from "./skeleton"
 import { useSelector } from "react-redux"
 import { RootState } from "@/store/store"
+import { Spinner } from "@/components/ui/spinner"
 
 const Fillial = () => {
     const { data, isLoading, isError } = useGetFillialsQuery()
@@ -22,18 +21,12 @@ const Fillial = () => {
     useEffect(() => {
         console.log(data);
         console.log(isError);
-    }, [data, isError])
-
-    if (!data) {
-        return (
-            <div className="text-center text-gray-400 mt-10">
-                No fillials found.
-            </div>
-        )
-    }
+    }, [data, isError, isLoading])
     if (isLoading) {
-        <FillialCardSkeleton />
+        return <Spinner style={{ color: "var(--accent-color)" }} fontSize={32} className="py-10 mx-auto" />
     }
+    if (!data) return
+
 
     return (
 

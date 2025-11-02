@@ -6,7 +6,7 @@ import { paths } from '@/shared/routing/paths';
 
 const Footer = () => {
     return (
-        <footer className="relative text-white">
+        <footer className="relative text-white z-30">
             <div className="mx-auto max-w-[1240px] px-5 py-16 relative z-10">
                 <div className="flex flex-col md:flex-row md:items-start gap-10 md:gap-14 pt-10">
 

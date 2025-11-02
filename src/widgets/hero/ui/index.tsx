@@ -10,45 +10,62 @@ import {
     SheetTrigger,
 } from "@/components/ui/sheet";
 import Image from 'next/image';
-import React from 'react';
-import hero from "@public/welcome-hero.png"
+import React, { useEffect, useState } from 'react';
+import hero from "@public/welcome-hero.webp"
 import icon from "@public/iconmustache.svg"
 import { Button } from "@/components/ui/button";
 import AppointmentSidebar from "@/widgets/appointmentSidebar";
+import { useSelector } from "react-redux";
+import { RootState } from "@/store/store";
+import Modal from "@/widgets/modal/ui";
 
 const Hero = () => {
+    const [isModal, setIsModal] = useState(false)
+    const token = useSelector((state: RootState) => state.user.token)
+    useEffect(() => {
+        if (token) {
+            setIsModal(false)
+        }
+    }, [token])
+
     return (
-        <div className='flex flex-col items-center justify-center pt-10 z-40'>
+        <div className='flex flex-col items-center justify-center pt-10 z-40 relative'>
             <div className='max-w-[1240px] mx-auto flex flex-col items-center gap-3'>
                 <div className='flex flex-col items-center justify-center relative'>
-                    <Image src={hero} width={300} height={500} alt='hero image' />
+                    <Image src={hero} width={300} height={500} alt='hero image' priority quality={70} />
                     <h1 className='absolute top-40 text-center text-white font-accent  text-4xl max-sm:text-2xl'>KINGSMAN <br /> BARBERS</h1>
-                    <Image className='absolute top-70' src={icon} width={120} height={120} alt='icon' />
+                    <Image className='absolute top-70' src={icon} width={120} height={120} alt='icon' priority />
                 </div>
-                <Sheet>
-                    <SheetTrigger asChild>
-                        <button className='cursor-pointer active:text-accent active:bg-white hover:bg-white hover:text-accent transition-colors bg-accent px-10 w-44 py-3 max-sm:w-36 max-sm:px-5 rounded-2xl uppercase font-accent'>Sign Up</button>
-                    </SheetTrigger>
-                    <SheetContent className="text-white">
-                        <SheetHeader>
-                            <SheetTitle hidden className="text-2xl font-bold text-white">Profile</SheetTitle>
-                            <SheetDescription hidden className="text-gray-300 text-[14px">
-                                Hi <span className="text-gold">KINGSMAN</span> 💈 Keep track of your appointments, explore your grooming history, and stay sharp with style made for kings.
-                            </SheetDescription>
-                        </SheetHeader>
-                        <div className="pb-10">
-                        <AppointmentSidebar />
-                        </div>
-                        <SheetFooter className="mt-auto">
-                            <SheetClose asChild>
-                                <Button variant="outline" className="w-full cursor-pointer text-white">
-                                    Close
-                                </Button>
-                            </SheetClose>
-                        </SheetFooter>
-                    </SheetContent>
-                </Sheet>
+                {!token && <button onClick={() => setIsModal(true)} className='cursor-pointer active:text-accent active:bg-white hover:bg-white hover:text-accent transition-colors bg-accent px-10 w-44 py-3 max-sm:w-36 max-sm:px-5 rounded-2xl uppercase font-accent'>Sign Up</button>
+                }
 
+                {!token && <Modal show={isModal} setShow={setIsModal} />}
+                {token &&
+                    <Sheet>
+                        <SheetTrigger asChild>
+                            <button className='cursor-pointer active:text-accent active:bg-white hover:bg-white hover:text-accent transition-colors bg-accent px-10 w-44 py-3 max-sm:w-36 max-sm:px-5 rounded-2xl uppercase font-accent'>Sign Up</button>
+                        </SheetTrigger>
+                        <SheetContent className="text-white">
+                            <SheetHeader>
+                                <SheetTitle hidden className="text-2xl font-bold text-white">Profile</SheetTitle>
+                                <SheetDescription hidden className="text-gray-300 text-[14px">
+                                    Hi <span className="text-gold">KINGSMAN</span> 💈 Keep track of your appointments, explore your grooming history, and stay sharp with style made for kings.
+                                </SheetDescription>
+                            </SheetHeader>
+                            <div className="pb-10">
+                                <AppointmentSidebar />
+                            </div>
+                            <SheetFooter className="mt-auto">
+                                <SheetClose asChild>
+                                    <Button type="button" variant="outline" className="w-full cursor-pointer text-white">
+                                        Close
+                                    </Button>
+                                </SheetClose>
+                            </SheetFooter>
+                        </SheetContent>
+
+                    </Sheet>
+                }
             </div>
         </div>
     );
