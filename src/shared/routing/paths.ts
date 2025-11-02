@@ -13,4 +13,5 @@ export const paths: Paths = {
   favorites: "/profile/favorites",
   register: "/register",
   login: "/login",
+  admin: "/admin",
 };
