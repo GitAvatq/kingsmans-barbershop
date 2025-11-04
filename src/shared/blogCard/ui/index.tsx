@@ -1,5 +1,4 @@
 import { BlogCardProps } from "@/app/services/types/blog.interface";
-import Image from "next/image";
 import Link from "next/link";
 import { Skeleton } from "@/components/ui/skeleton";
 
@@ -11,10 +10,10 @@ export const BlogCard = ({
       {loading ? (
         <Skeleton className="w-full h-full rounded-xl" />
       ) : (
-        <Image
+        <img
           src={image}
           alt={"name"}
-          fill
+          // fill
           className="object-cover transition-transform duration-500 group-hover:scale-110"
         />
       )}

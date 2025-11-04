@@ -14,12 +14,6 @@ import { Spinner } from '@/components/ui/spinner'
 import { useGetBarbersQuery } from '@/app/barbers/api'
 import { useRemoveAppointmentMutation } from './api'
 
-// interface IAppointment {
-//     date: string
-//     servicesId: number
-//     barberId: number
-// }
-
 const StartPage = () => {
     const payload = useSelector((state: RootState) => state.user.user)
 
@@ -107,7 +101,6 @@ const StartPage = () => {
                                             <p className="text-gray-500 text-sm">No appointments yet</p>
                                         )}
                                     </div>
-
                                 ) : (
                                     <p className="text-gray-500 text-sm">No appointments yet</p>
                                 )}
@@ -116,7 +109,6 @@ const StartPage = () => {
                     </AccordionContent>
                 </AccordionItem>
             </Accordion>
-
             <AppointmentForm />
         </div>
     )

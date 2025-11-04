@@ -7,6 +7,7 @@ import BarbersServices from "@/widgets/barbdersServices/ui";
 import BlogSection from "./ui/blog/ui";
 import Header from "@/widgets/header/ui";
 import Footer from "@/widgets/footer/ui";
+import ReviewForm from "@/widgets/reviewForm/ui";
 
 const Services = () => {
   return (
@@ -25,6 +26,7 @@ const Services = () => {
       </div>
       <BarbersServices />
       <Rewievs />
+      <ReviewForm />
       <BlogSection />
       <div className="relative bg-[url(/footer-bg.jpg)] bg-left bg-cover w-full min-h-screen">
         <div className="bg-black/50 absolute inset-0 z-0"></div>

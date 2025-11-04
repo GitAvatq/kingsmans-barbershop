@@ -18,22 +18,25 @@ const ChooseBarber = () => {
         dispatch(appointmentActions.setBarber(id))
     }
     return (
-        <div className="flex flex-col gap-6 relative">
-            <span>Barber</span>
-            {data.map((b) => (
-                <div key={b.id} className="flex items-center gap-3">
-                    <Checkbox
-                        id={`barber-${b.id}`}
-                        checked={selectedBarber === b.id}
-                        onCheckedChange={() => handleSelect(b.id)}
-                    />
-                    <Label htmlFor={`barber-${b.id}`}>
-                        {b.name} - {b.status}$
-                    </Label>
-                </div>
-            ))}
+        <div>
+            <span className="mb-10 relative">Barber</span>
+            <div className="pt-8 flex flex-col gap-6  h-[450px] overflow-scroll">
+                {data.map((b) => (
+                    <div key={b.id} className="flex items-center gap-3 ">
+                        <Checkbox
+                            id={`barber-${b.id}`}
+                            checked={selectedBarber === b.id}
+                            onCheckedChange={() => handleSelect(b.id)}
+                        />
+                        <Label htmlFor={`barber-${b.id}`}>
+                            {b.name} - {b.status}$
+                        </Label>
+                    </div>
+                ))}
+            </div>
             {selectedBarber && <Notification firstStep={false} secondStep nextChoose="Choose the date" />}
         </div>
+
     );
 };
 

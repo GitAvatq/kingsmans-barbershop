@@ -9,12 +9,12 @@ import { useEffect } from "react"
 export default function AppointmentSidebar() {
     const doesNext = useSelector((state: RootState) => state.active.nextPart)
     const data = useSelector((state: RootState) => state.appointment.appointment)
-    const [processAppointment, { isLoading, isError, data: ServerData }] = useInitializeAppointmentMutation()
+    const [processAppointment, { isLoading, data: ServerData }] = useInitializeAppointmentMutation()
+
 
     useEffect(() => {
         if (data) processAppointment(data)
-    }, [data, processAppointment, isLoading, isError])
-
+    }, [data, processAppointment])
 
     return <>{doesNext ? <NextPage /> : <StartPage />}</>
 }

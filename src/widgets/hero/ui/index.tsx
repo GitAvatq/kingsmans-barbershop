@@ -55,7 +55,7 @@ const Hero = () => {
                             <div className="pb-10">
                                 <AppointmentSidebar />
                             </div>
-                            <SheetFooter className="mt-auto">
+                            <SheetFooter hidden className="mt-auto">
                                 <SheetClose asChild>
                                     <Button type="button" variant="outline" className="w-full cursor-pointer text-white">
                                         Close

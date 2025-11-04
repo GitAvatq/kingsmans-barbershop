@@ -50,7 +50,7 @@ export const store = configureStore({
       servicesApi.middleware,
       appointmentApi.middleware,
       cancelApi.middleware,
-      adminApi.middleware
+      adminApi.middleware,
     ),
 });
 

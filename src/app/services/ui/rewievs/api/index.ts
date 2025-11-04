@@ -8,6 +8,7 @@ export const reviewApi = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: basicUrl,
   }),
+  tagTypes: ["reviews"],
   endpoints: (build) => ({
     getReviews: build.query<Review[], void>({
       query: () => ({
@@ -15,8 +16,17 @@ export const reviewApi = createApi({
         method: "GET",
       }),
       transformResponse: (response: { data: Review[] }) => response.data,
+      providesTags: ["reviews"],
+    }),
+    createReview: build.mutation<any, Review>({
+      query: (data: Review) => ({
+        url: "rewievs/create",
+        body: data,
+        method: "POST",
+      }),
+      invalidatesTags: ["reviews"],
     }),
   }),
 });
 
-export const { useGetReviewsQuery } = reviewApi;
+export const { useGetReviewsQuery, useCreateReviewMutation } = reviewApi;

@@ -10,6 +10,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel"
 import ReviewSkeleton from "./skeleton";
+import ReviewForm from "@/widgets/reviewForm/ui";
 
 const Reviews = () => {
   const { data, isLoading, isError } = useGetReviewsQuery()
