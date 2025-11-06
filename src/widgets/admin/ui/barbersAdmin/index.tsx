@@ -9,7 +9,7 @@ const BarbersAdmin = () => {
   const [barber, { data, isLoading }] = usePostBarberMutation();
   const onSubmit = (dataValue: DataBarbers) => {
     console.log(dataValue);
-    // barber(dataValue);
+    barber(dataValue);
   };
 
   console.log(data);

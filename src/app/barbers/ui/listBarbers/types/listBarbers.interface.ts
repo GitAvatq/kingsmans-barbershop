@@ -1,7 +1,7 @@
 export interface DataBarbers {
   id: number;
   name: string;
-  experience: string;
+  experience: number;
   status: string;
   earned: number;
   rating: number;
